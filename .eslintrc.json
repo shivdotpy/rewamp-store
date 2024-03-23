@@ -1,3 +1,58 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true, // Enables browser-specific globals (e.g., window, document)
+    "commonjs": true, // Enables CommonJS module syntax (e.g., `require`, `exports`)
+    "es2021": true, // Supports ECMAScript 2021 features (adjust based on project needs)
+    "node": true // Enables Node.js-specific globals (e.g., process)
+  },
+  "extends": [
+    "eslint:recommended", // Includes core ESLint rules
+    "plugin:prettier/recommended" // Integrates with Prettier for consistent formatting
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021, // Matches the `env.es2021` setting
+    "sourceType": "module" // Enables parsing of ES modules (adjust for CommonJS if needed)
+  },
+  "plugins": [
+    "prettier" // Enables Prettier integration
+  ],
+  "rules": {
+    // Enforce consistent quoting style (adjust as needed)
+    "quotes": ["error", "double"],
+
+    // Disallow unused variables
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }], // Ignore leading underscore for private variables
+
+    // Disallow console statements in production (consider using a logger library)
+    "no-console": ["warn", { "allow": ["warn", "error"] }], // Allow warnings and errors
+
+    // Enforce consistent spacing around operators
+    "operator-linebreak": ["error", "after"],
+
+    // Warn about potential performance issues with large arrays and objects
+    "complexity": ["warn", { "max": 10 }],
+
+    // Enforce consistent indentation style
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+
+    // Enforce consistent spacing before and after blocks
+    "block-spacing": ["error", "always"],
+
+    // Warn about potential errors from using `==` instead of `===`
+    "eqeqeq": ["warn", "always"],
+
+    // Enforce consistent spacing before function parentheses
+    "space-before-function-paren": ["error", "always"],
+
+    // Enforce consistent spacing around colons in object literals
+    "object-curly-spacing": ["error", "always"],
+
+    // Disallow trailing commas in object literals
+    "no-trailing-comma": "error",
+
+    // Enforce consistent spacing before brackets in JSX attributes
+    "jsx-closing-bracket-location": ["error", "afterEachLine"],
+
+    // ... Add more rules as needed ...
+  }
 }
